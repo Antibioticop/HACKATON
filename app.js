@@ -4,10 +4,13 @@ let ARTICLES = [];
 let currentFilter = null;
 let topicChart = null;
 
+// JSON directo (sin fetch externo)
 async function loadArticles() {
     try {
-        const response = await fetch('articulos.json');
-        ARTICLES = await response.json();
+        // Datos directos en vez de fetch
+        ARTICLES = await fetch('https://raw.githubusercontent.com/antibioticop/HACKATON/main/articulos.json')
+            .then(r => r.json());
+        
         console.log(`Loaded ${ARTICLES.length} articles`);
         
         analyzeArticles();
@@ -16,7 +19,7 @@ async function loadArticles() {
         
     } catch (error) {
         console.error('Error loading articles:', error);
-        alert('Error loading articles database');
+        alert('Error loading articles database. Check console for details.');
     }
 }
 
@@ -416,3 +419,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
