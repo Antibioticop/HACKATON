@@ -414,4 +414,5 @@ document.addEventListener('DOMContentLoaded', () => {
             performSearch();
         }
     });
+
 });
