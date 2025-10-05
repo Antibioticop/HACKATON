@@ -8,7 +8,7 @@ let topicChart = null;
 async function loadArticles() {
     try {
         // Datos directos en vez de fetch
-        ARTICLES = await fetch('https://raw.githubusercontent.com/antibioticop/HACKATON/main/articulos.json')
+        const response = await fetch('https://raw.githubusercontent.com/Antibioticop/HACKATON/main/articulos.json');
             .then(r => r.json());
         
         console.log(`Loaded ${ARTICLES.length} articles`);
@@ -419,4 +419,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
